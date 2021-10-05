@@ -41,10 +41,12 @@ async def score(_, message):
         match_descrition = soup.select(".description")
         obj1 = soup.select(".teams")
         status = soup.select(".status-text")
-        await message.reply_text(match_descrition[1].text)
+        text = ""
+        text = text + match_descrition[1].text + obj1[0].text + status[0].text
+        """ await message.reply_text(match_descrition[1].text)
         await message.reply_text(obj1[0].text)
-        await message.reply_text(status[0].text)
-        await m.delete()
+        await message.reply_text(status[0].text) """
+        await m.edit(text)
         return
     except Exception as e:
         print(str(e))
