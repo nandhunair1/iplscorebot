@@ -33,9 +33,10 @@ bot = Client(
 async def score(_, message):
     m = await message.reply_text("`Gathering ongoing ipl match scorecard...`")
     try:
-        a = iplscore.score()
-        return await m.edit(a)
-    except:
+        # a = iplscore.score()
+        await message.reply_text(iplscore.score())
+    except Exception as e:
+        print(str(e))
         return await m.edit("`No any ongoing ipl matches at this time.`")
 
 
