@@ -18,7 +18,8 @@
 
 import os
 import logging
-import iplscore
+from bs4 import BeautifulSoup
+import requests
 from pyrogram import Client, filters, idle
 from vars import API_ID, API_HASH, BOT_TOKEN
 
@@ -32,10 +33,19 @@ bot = Client(
 @bot.on_message(filters.private & filters.command("start"))
 async def score(_, message):
     m = await message.reply_text("`Gathering ongoing ipl match scorecard...`")
-    try:
-        a = iplscore.score()
-        a = str(a)
-        return await m.edit(a)
+    try:       
+        url = "https://www.espncricinfo.com/live-cricket-score"
+        r = requests.get(url)
+        soup = BeautifulSoup(r.text, "html.parser")
+        
+        match_descrition = soup.select(".description")
+        obj1 = soup.select(".teams")
+        status = soup.select(".status-text")
+        await message.reply_text(match_descrition[1].text)
+        await message.reply_text(obj1[0].text)
+        await message.reply_text(status[0].text)
+        await m.delete()
+        return
     except Exception as e:
         print(str(e))
         return await m.edit("`No any ongoing ipl matches at this time.`")
