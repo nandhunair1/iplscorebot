@@ -43,8 +43,11 @@ async def score(_, message):
         match_descrition = soup.select(".description")
         obj1 = soup.select(".teams")
         status = soup.select(".status-text")
+        lol = (obj1[0].text)
+        hello = lol.split(None, 1)[1].strip()
+        hmm = re.findall('[A-Z][^A-Z]*', hello)
         text = ""
-        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐈𝐏𝐋 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + match_descrition[1].text + "\n\n" + obj1[0].text + "\n\n" + status[0].text + "\n\n" + "**Bot by:** <a href='https://t.me/Infinity_Bots'>**Infinity Bots**</a>\n**Developer:** <a href='https://github.com/ImJanindu'>**Janindu**</a>"
+        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐈𝐏𝐋 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + match_descrition[1].text + "\n\n" + f"{lol.split(None, 1)[0].strip()} {hmm[0]} {hmm[1]}{hmm[2]}" + "\n\n" + status[0].text + "\n\n" + "**Bot by:** <a href='https://t.me/Infinity_Bots'>**Infinity Bots**</a>\n**Developer:** <a href='https://github.com/ImJanindu'>**Janindu**</a>"
         text = text.replace("eS", "e vs S")
         await m.edit(text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(
                                 [[InlineKeyboardButton(
