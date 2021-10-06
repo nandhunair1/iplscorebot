@@ -47,7 +47,7 @@ async def score(_, message):
         hello = lol.split(None, 1)[1].strip()
         hmm = re.findall('[A-Z][^A-Z]*', hello)
         text = ""
-        text = text + "**🔴 LIVE IPL SCORE 🏏**\n\n" + match_descrition[1].text + f"\n\n{lol.split(None, 1)[0].strip()} {hmm[0]} {hmm[1]} vs {hmm[2]} {hmm[3]}\n\n" + status[0].text + "\n\n" + "**Bot by @Infinity_Bots**\n**Developer:** <a href='https://github.com/ImJanindu'>**Janindu**</a>"
+        text = text + "**🔴 LIVE IPL SCORE 🏏**\n\n" + match_descrition[1].text + f"\n\n{lol.split(None, 1)[0].strip()} {hmm[0]} vs {hmm[1]}\n\n" + status[0].text + "\n\n" + "**Bot by @Infinity_Bots**\n**Developer:** <a href='https://github.com/ImJanindu'>**Janindu**</a>"
         text = text.replace("eS", "e vs S")
         await m.edit(text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(
                                 [[InlineKeyboardButton(
