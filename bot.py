@@ -49,7 +49,7 @@ async def score(_, message):
         text = ""
         text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐈𝐏𝐋 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + f"**{match_descrition[1].text}**" + "\n\n" + f"**{status[0].text}**" + "\n\n" + f"**⬇️ Scorecard ⬇️** \n\n=> **{lol.split(None, 1)[0].strip()} {hmm[0]}**\n\n**=> {hmm[1]}{hmm[2]}**" + "\n\n" + "**Bot by:** <a href='https://t.me/Infinity_Bots'>**Infinity Bots**</a>\n**Developer:** <a href='https://github.com/ImJanindu'>**Janindu**</a>"
         text = text.replace("(", " (")
-        text = text.replace(")", ")\nRuns: ")
+        text = text.replace(")", ") ")
         await m.edit(text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(
                                 [[InlineKeyboardButton(
                                      "Refresh 🔁", url="https://t.me/iplscorerobot?start=true")]]))
