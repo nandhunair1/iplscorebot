@@ -45,7 +45,7 @@ async def score(_, message):
         text = ""
         text = text + "**🔴 LIVE IPL SCORE 🏏**\n\n" + match_descrition[1].text + "\n\n" + obj1[0].text + "\n\n" + status[0].text + "\n\n" + "**Bot by @Infinity_Bots**\n**Developer:** <a href='https://github.com/ImJanindu'>Janindu</a>"
         text = text.replace("eS", "e vs S")
-        await m.edit(text, reply_markup=InlineKeyboardMarkup(
+        await m.edit(text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(
                                 [[InlineKeyboardButton(
                                      "Refresh 🔁", url="https://t.me/iplscorerobot?start=true")]]))
         return
