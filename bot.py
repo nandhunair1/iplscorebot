@@ -43,7 +43,7 @@ async def score(_, message):
         obj1 = soup.select(".teams")
         status = soup.select(".status-text")
         text = ""
-        text = text + match_descrition[1].text + "\n\n" + obj1[0].text + "\n\n" + status[0].text + "\n\n" + status[1].text + "\n\n" + "**Bot by @Infinity_Bots**"
+        text = text + match_descrition[1].text + "\n\n" + obj1[0].text + "\n\n" + status[0].text + "\n\n" + "**Bot by @Infinity_Bots**"
         text = text.replace("eS", "e vs S")
         await m.edit(text, reply_markup=InlineKeyboardMarkup(
                                 [[InlineKeyboardButton(
