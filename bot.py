@@ -21,6 +21,7 @@ import logging
 from bs4 import BeautifulSoup
 import requests
 from pyrogram import Client, filters, idle
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from vars import API_ID, API_HASH, BOT_TOKEN
 
 bot = Client(
@@ -42,8 +43,11 @@ async def score(_, message):
         obj1 = soup.select(".teams")
         status = soup.select(".status-text")
         text = ""
-        text = text + match_descrition[1].text + "\n\n" + obj1[0].text + "\n\n" + status[0].text + "\n\n" + "**Bot by @Infinity_Bots**"    
-        await m.edit(text)
+        text = text + match_descrition[1].text + "\n\n" + obj1[0].text + "\n\n" + status[0].text + "\n\n" + "**Bot by @Infinity_Bots**"  
+        text = text.replace("", " ")
+        await m.edit(text, reply_markup=InlineKeyboardMarkup(
+                                [[InlineKeyboardButton(
+                                     "Refresh 🔁", url="https://t.me/iplscorerobot?start=true")]]))
         return
     except Exception as e:
         print(str(e))
