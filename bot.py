@@ -46,7 +46,6 @@ async def score(_, message):
         text = text.replace("Check ", "")
         text = text.replace("(", " (")
         text = text.replace(")", ") ")
-        return
     except Exception as e:
         print(str(e))
         return await m.edit("`No any ongoing ipl matches at this time.`")
