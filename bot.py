@@ -44,7 +44,7 @@ async def score(_, message):
         obj1 = soup.select(".teams")
         status = soup.select(".status-text")
         text = ""
-        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + f"**{match_descrition[0].text}**" + "\n\n" + f"**⦿ {status[0].text}**" + "\n\n" + f"**{obj1[0].text}**" + "
+        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + f"**{match_descrition[0].text}**" + "\n\n" + f"**⦿ {status[0].text}**" + "\n\n" + f"**{obj1[0].text}**"
         text = text.replace("Check ", "")
         text = text.replace("(", " (")
         text = text.replace(")", ") ")
