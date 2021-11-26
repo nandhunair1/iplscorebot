@@ -43,13 +43,13 @@ async def score(_, message):
         obj1 = soup.select(".teams")
         status = soup.select(".status-text")
         text = ""
-        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + f"**{match_descrition[0].text}**" + "\n\n" + f"**⦿ {status[0].text}**" + "\n\n" + f"**© {obj1[0].text}**" + "\n\n" + "**Bot by -** <a href='https://t.me/Infinity_Bots'>**Infinity Bots**</a>\n**Developer -** <a href='https://github.com/ImJanindu'>**Janindu**</a>"
+        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + f"**{match_descrition[0].text}**" + "\n\n" + f"**⦿ {status[0].text}**" + "\n\n" + f"**® {obj1[0].text}**" + "\n\n" + "©️ MᴀɪɴᴛᴀɪɴᴇD Bʏ : <a href='https://t.me/tvseriezzz'>♠️ 𝑨𝒍𝒍 𝑰𝒏 𝑶𝒏𝒆 𝑮𝒓𝒐𝒖𝒑 🎬</a>"
         text = text.replace("Check ", "")
         text = text.replace("(", " (")
         text = text.replace(")", ") ")
         await m.edit(text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(
                                 [[InlineKeyboardButton(
-                                     "Refresh 🔁", url="https://t.me/iplscorerobot?start=true")]]))
+                                     "♻️ ⒼⓇⓄⓊⓅ ♻️", url="https://t.me/tvseriezzz")]]))
         return
     except Exception as e:
         print(str(e))
