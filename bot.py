@@ -34,13 +34,12 @@ bot = Client(
 
 @bot.on_message(filters.private & filters.command("cs"))
 async def score(_, message):
-    m = await message.reply_text("`Gathering ongoing ipl match scorecard...`")
+    m = await message.reply_text("`Gathering ongoing match scorecard...`")
     try:       
         url = "https://www.espncricinfo.com/live-cricket-score"
         r = requests.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
         
-        match_descrition = soup.select(".description")
         obj1 = soup.select(".teams")
         status = soup.select(".status-text")
         text = ""
