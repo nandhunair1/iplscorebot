@@ -21,7 +21,6 @@ import logging
 from bs4 import BeautifulSoup
 import requests
 from pyrogram import Client, filters, idle
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from vars import API_ID, API_HASH, BOT_TOKEN
 
 bot = Client(
