@@ -44,13 +44,10 @@ async def score(_, message):
         obj1 = soup.select(".teams")
         status = soup.select(".status-text")
         text = ""
-        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + f"**{match_descrition[0].text}**" + "\n\n" + f"**⦿ {status[0].text}**" + "\n\n" + f"**{obj1[0].text}**"
+        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + f"**⦿ {status[0].text}**" + "\n\n" + f"**© {obj1 [0].text}**"
         text = text.replace("Check ", "")
         text = text.replace("(", " (")
         text = text.replace(")", ") ")
-        await m.edit(text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(
-                                [[InlineKeyboardButton(
-                                     "Refresh 🔁", url="https://t.me/Venomtgbot?cs=true")]]))
         return
     except Exception as e:
         print(str(e))
