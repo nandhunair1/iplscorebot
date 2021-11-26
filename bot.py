@@ -50,7 +50,7 @@ async def score(_, message):
         text = text.replace(")", ") ")
         await m.edit(text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(
                                 [[InlineKeyboardButton(
-                                     "Refresh 🔁", callback_data='start')]]))
+                                     "Refresh 🔁", url="https://t.me/Venomtgbot?cs=true")]]))
         return
     except Exception as e:
         print(str(e))
