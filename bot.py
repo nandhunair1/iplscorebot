@@ -32,11 +32,11 @@ bot = Client(
 )
 
 
-@bot.on_callback_query(filters.private & filters.command("start"))
+@bot.on_message(filters.private & filters.command("cs"))
 async def score(_, message):
     m = await message.reply_text("`Gathering ongoing ipl match scorecard...`")
     try:       
-        url = "https://www.espncricinfo.com/live-cricket-score"
+        url = "https://www.cricbuzz.com/live-cricket-score"
         r = requests.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
         
@@ -44,32 +44,7 @@ async def score(_, message):
         obj1 = soup.select(".teams")
         status = soup.select(".status-text")
         text = ""
-        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐈𝐏𝐋 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + f"**{match_descrition[0].text}**" + "\n\n" + f"**⦿ {status[0].text}**" + "\n\n" + f"**{obj1[0].text}**" + "\n\n" + "**Bot by -** <a href='https://t.me/Infinity_Bots'>**Infinity Bots**</a>\n**Developer -** <a href='https://github.com/ImJanindu'>**Janindu**</a>"
-        text = text.replace("Check ", "")
-        text = text.replace("(", " (")
-        text = text.replace(")", ") ")
-        await m.edit(text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(
-                                [[InlineKeyboardButton(
-                                     "Refresh 🔁", callback_data='start')]]))
-        return
-    except Exception as e:
-        print(str(e))
-        return await m.edit("`No any ongoing ipl matches at this time.`")
-
-
-@bot.on_message(filters.private & filters.command("start"))
-async def score(_, message):
-    m = await message.reply_text("`Gathering ongoing ipl match scorecard...`")
-    try:       
-        url = "https://www.espncricinfo.com/live-cricket-score"
-        r = requests.get(url)
-        soup = BeautifulSoup(r.text, "html.parser")
-        
-        match_descrition = soup.select(".description")
-        obj1 = soup.select(".teams")
-        status = soup.select(".status-text")
-        text = ""
-        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐈𝐏𝐋 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + f"**{match_descrition[0].text}**" + "\n\n" + f"**⦿ {status[0].text}**" + "\n\n" + f"**{obj1[0].text}**" + "\n\n" + "**Bot by -** <a href='https://t.me/Infinity_Bots'>**Infinity Bots**</a>\n**Developer -** <a href='https://github.com/ImJanindu'>**Janindu**</a>"
+        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + f"**{match_descrition[0].text}**" + "\n\n" + f"**⦿ {status[0].text}**" + "\n\n" + f"**{obj1[0].text}**" + "
         text = text.replace("Check ", "")
         text = text.replace("(", " (")
         text = text.replace(")", ") ")
