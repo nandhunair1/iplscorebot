@@ -30,8 +30,7 @@ bot = Client(
     bot_token=BOT_TOKEN
 )
 
-
-@bot.on_message(filters.private & filters.command("cs"))
+@bot.on_message(filters.private & filters.command & filters.group("cs"))
 async def score(_, message):
     m = await message.reply_text("`Gathering ongoing match scorecard...`")
     try:       
@@ -39,10 +38,11 @@ async def score(_, message):
         r = requests.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
         
+        match_descrition = soup.select(".description")
         obj1 = soup.select(".teams")
         status = soup.select(".status-text")
         text = ""
-        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + f"**⦿ {status[0].text}**" + "\n\n" + f"**© {obj1[0].text}**"
+        text = text + "**🔴 𝐋𝐈𝐕𝐄 𝐒𝐂𝐎𝐑𝐄 🏏**\n\n" + f"**{match_descrition[0].text}**" + "\n\n" + f"**⦿ {status[0].text}**" + "\n\n" + f"**© {obj1[0].text}**" + "\n\n" + "**Bot by -** <a href='https://t.me/Infinity_Bots'>**Infinity Bots**</a>\n**Developer -** <a href='https://github.com/ImJanindu'>**Janindu**</a>"
         text = text.replace("Check ", "")
         text = text.replace("(", " (")
         text = text.replace(")", ") ")
