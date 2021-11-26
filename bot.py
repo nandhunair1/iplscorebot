@@ -49,7 +49,7 @@ async def score(_, message):
         text = text.replace(")", ") ")
         await m.edit(text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(
                                 [[InlineKeyboardButton(
-                                     "Refresh 🔁", url="https://t.me/iplscorerobot?start=true")]]))
+                                     "Refresh 🔁", callback_data='start')]]))
         return
     except Exception as e:
         print(str(e))
