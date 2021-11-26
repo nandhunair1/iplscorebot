@@ -53,7 +53,7 @@ async def score(_, message):
         return
     except Exception as e:
         print(str(e))
-        return await m.edit("`No any ongoing ipl matches at this time.`")
+        return await m.edit("`No any ongoing matches at this time.`")
 
 
 bot.start()
