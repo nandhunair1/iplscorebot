@@ -30,7 +30,7 @@ bot = Client(
     bot_token=BOT_TOKEN
 )
 
-@bot.on_message(filters.private & filters.command & filters.group("cs"))
+@bot.on_message(filters.command("cs"))
 async def score(_, message):
     m = await message.reply_text("`Gathering ongoing match scorecard...`")
     try:       
