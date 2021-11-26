@@ -21,6 +21,7 @@ import logging
 from bs4 import BeautifulSoup
 import requests
 from pyrogram import Client, filters, idle
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from vars import API_ID, API_HASH, BOT_TOKEN
 
 bot = Client(
@@ -46,6 +47,10 @@ async def score(_, message):
         text = text.replace("Check ", "")
         text = text.replace("(", " (")
         text = text.replace(")", ") ")
+        await m.edit(text, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(
+                                [[InlineKeyboardButton(
+                                     "Refresh 🔁", url="https://t.me/iplscorerobot?start=true")]]))
+        return
     except Exception as e:
         print(str(e))
         return await m.edit("`No any ongoing ipl matches at this time.`")
