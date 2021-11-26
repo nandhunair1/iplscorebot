@@ -36,7 +36,7 @@ bot = Client(
 async def score(_, message):
     m = await message.reply_text("`Gathering ongoing ipl match scorecard...`")
     try:       
-        url = "https://www.cricbuzz.com/live-cricket-score"
+        url = "https://www.espncricinfo.com/live-cricket-score"
         r = requests.get(url)
         soup = BeautifulSoup(r.text, "html.parser")
         
